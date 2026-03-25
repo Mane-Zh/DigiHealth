@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DigiHealth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2966/2966327.png">
+  <style>
+    html { scroll-behavior: smooth; }
+    .section { padding: 80px 20px; }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-teal-50 to-cyan-50 text-gray-800">
+
+<!-- ================= HEADER (Header B) ================= -->
+<header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm border-b border-gray-200">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
+    <div class="flex items-center gap-2">
+      <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" class="w-8 h-8" alt="logo">
+      <h1 class="text-xl font-bold text-teal-700" id="nav-title">DigiHealth</h1>
+    </div>
+    <nav class="flex gap-5 text-sm font-medium items-center">
+      <a href="#about" class="hover:text-teal-600"    id="nav-about">About</a>
+      <a href="#home" class="hover:text-teal-600"     id="nav-home">Home</a>
+      <a href="#services" class="hover:text-teal-600" id="nav-services">Services</a>
+      <a href="#dashboard-shell" class="hover:text-teal-600 hidden" id="nav-dashboard">Dashboard</a>
+      <a href="#login" class="hover:text-teal-600"    id="nav-login">Login</a>
+      <a href="#register" class="hover:text-teal-600" id="nav-register">Register</a>
+      <button id="logout-btn"
+              class="ml-2 px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              style="display:none;">
+        Logout
+      </button>
+    </nav>
+    <div class="flex gap-2">
+      <button id="btn-en" class="text-sm px-2 py-1 border rounded-lg hover:bg-gray-100">EN</button>
+      <button id="btn-ru" class="text-sm px-2 py-1 border rounded-lg hover:bg-gray-100">RU</button>
+      <button id="btn-am" class="text-sm px-2 py-1 border rounded-lg hover:bg-gray-100">AM</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PUBLIC LANDING (only when not logged in) ================= -->
+
+<!-- Home -->
+<section id="home" class="section bg-gradient-to-tr from-teal-700 to-cyan-600 text-white mt-16 text-center">
+  <div class="max-w-5xl mx-auto space-y-6">
+    <img
+      src="https://images.unsplash.com/photo-1603575448363-9f2b5b34b3c5?auto=format&fit=crop&w=1000&q=80"
+      alt="health monitor"
+      class="rounded-2xl mx-auto w-full max-w-xl shadow-lg"
+    >
+    <h2 class="text-4xl font-extrabold" id="home-title">Real-time Health Monitoring</h2>
+    <p class="text-lg opacity-90 max-w-2xl mx-auto" id="home-text">
+      Track your vitals, understand your data, and improve your wellbeing with DigiHealth smart insights.
+    </p>
+    <div class="flex justify-center gap-4">
+      <a href="#register" id="home-btn1"
+         class="px-6 py-3 bg-white text-teal-800 font-semibold rounded-xl hover:bg-gray-100">
+        Get Started
+      </a>
+      <a href="#services" id="home-btn2"
+         class="px-6 py-3 bg-transparent border border-white rounded-xl hover:bg-white/10">
+        Explore Services
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="section bg-white text-center">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold text-teal-700 mb-4" id="about-title">About Us</h2>
+    <img
+      src="https://images.unsplash.com/photo-1603791452906-c7a63b43b81e?auto=format&fit=crop&w=1000&q=80"
+      class="rounded-xl mx-auto mb-5 max-w-3xl shadow"
+      alt="about"
+    >
+    <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed text-lg" id="about-text">
+      DigiHealth is a prototype platform that visualizes real-time data from wearable devices such as smartwatches.
+      It helps users monitor their vital signs and understand trends in their wellbeing.
+    </p>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="section bg-white text-center">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-teal-700 mb-10" id="services-title">Our Services</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="p-6 border rounded-2xl shadow hover:shadow-md transition cursor-pointer service-card"
+           data-service="raw">
+        <img
+          src="https://www.cnet.com/a/img/resize/5fc6cd01a9ef056800194a82d2d40480c64224ae/hub/2019/05/08/b4730c29-2674-4e11-abdd-9b4ad6227fb1/cnet-apple-watch-3-lifestyle.jpg?auto=webp&width=1200"
+          class="rounded-xl mb-3"
+          alt="signal data"
+        >
+        <h3 class="font-semibold mb-2" id="s1-title">Raw Signals</h3>
+        <p class="text-sm text-gray-600" id="s1-text">Live data for heart rate, temperature, and steps.</p>
+      </div>
+
+      <div class="p-6 border rounded-2xl shadow hover:shadow-md transition cursor-pointer service-card"
+           data-service="score">
+        <img
+          src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=400&q=60"
+          class="rounded-xl mb-3"
+          alt="health score"
+        >
+        <h3 class="font-semibold mb-2" id="s2-title">Health Score</h3>
+        <p class="text-sm text-gray-600" id="s2-text">See your overall health score based on key vitals.</p>
+      </div>
+
+      <div class="p-6 border rounded-2xl shadow hover:shadow-md transition cursor-pointer service-card"
+           data-service="recs">
+        <img
+          src="https://aarp.widen.net/content/f3jqhy6qrc/png/91011_smartwatch_Shutterstock1896002689.png?anchor=0%2C0&color=ffffffff&u=mh5igy"
+          class="rounded-xl mb-3"
+          alt="recommendations"
+        >
+        <h3 class="font-semibold mb-2" id="s3-title">Recommendations</h3>
+        <p class="text-sm text-gray-600" id="s3-text">Get personalized tips for better wellness.</p>
+      </div>
+
+      <div class="p-6 border rounded-2xl shadow hover:shadow-md transition cursor-pointer service-card"
+           data-service="history">
+        <img
+          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&w=2400&q=90"
+          class="rounded-xl mb-3"
+          alt="history"
+        >
+        <h3 class="font-semibold mb-2" id="s4-title">History</h3>
+        <p class="text-sm text-gray-600" id="s4-text">View and export your previous health records.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Login + Register -->
+<section class="section bg-white">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+    <!-- Login -->
+    <div id="login" class="bg-gray-50 p-6 rounded-2xl shadow">
+      <h2 class="text-2xl font-bold text-teal-700 mb-4 text-center" id="login-title">Login</h2>
+      <form id="login-form" class="space-y-3">
+        <input
+          type="email"
+          id="login-email"
+          placeholder="Email"
+          class="w-full border rounded-xl p-2.5"
+          required
+        >
+        <input
+          type="password"
+          id="login-password"
+          placeholder="Password"
+          class="w-full border rounded-xl p-2.5"
+          required
+        >
+        <button
+          type="submit"
+          class="w-full bg-teal-700 text-white rounded-xl p-2.5 hover:bg-teal-600"
+          id="login-btn"
+        >
+          Login
+        </button>
+      </form>
+      <p class="mt-4 text-gray-600 text-center" id="login-text">
+        Login allows you to access your existing account to view your health data.
+      </p>
+    </div>
+
+    <!-- Register -->
+    <div id="register" class="bg-gradient-to-br from-teal-50 to-white p-6 rounded-2xl shadow">
+      <h2 class="text-2xl font-bold text-teal-700 mb-4 text-center" id="reg-title">Create Account</h2>
+      <form id="reg-form" class="space-y-3">
+        <input
+          type="text"
+          id="reg-username"
+          placeholder="Username"
+          class="w-full border rounded-xl p-2.5"
+          required
+        >
+        <input
+          type="email"
+          id="reg-email"
+          placeholder="Email"
+          class="w-full border rounded-xl p-2.5"
+          required
+        >
+        <input
+          type="password"
+          id="reg-password"
+          placeholder="Password"
+          class="w-full border rounded-xl p-2.5"
+          required
+        >
+        <button
+          type="submit"
+          class="w-full bg-teal-700 text-white rounded-xl p-2.5 hover:bg-teal-600"
+          id="reg-btn"
+        >
+          Register
+        </button>
+      </form>
+      <p class="mt-4 text-gray-600 text-center" id="reg-text">
+        Register allows you to create a new account to start tracking your health.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DASHBOARD SHELL (only when logged in) ================= -->
+<section id="dashboard-shell" class="min-h-screen pt-20 pb-8 px-2 hidden">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex gap-4">
+      <!-- Glassmorphism sidebar -->
+      <aside class="w-64 hidden md:flex flex-col rounded-3xl bg-white/20 backdrop-blur-xl border border-white/40 shadow-xl p-4">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-2xl bg-teal-500/80 flex items-center justify-center text-white text-xl font-bold">
+            DH
+          </div>
+          <div>
+            <div class="text-sm text-gray-600">Logged in as</div>
+            <div class="text-base font-semibold text-teal-800" id="sidebar-username">User</div>
+          </div>
+        </div>
+
+        <nav class="flex-1 space-y-1 text-sm">
+          <button data-page-btn="dash-home"
+                  class="w-full flex items-center gap-2 px-3 py-2 rounded-xl bg-white/70 text-teal-800 font-semibold shadow-sm">
+            Overview
+          </button>
+          <button data-page-btn="dash-live"
+                  class="w-full flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/40 text-gray-800">
+            Live Data
+          </button>
+          <button data-page-btn="dash-profile"
+                  class="w-full flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/40 text-gray-800">
+            Profile &amp; BMI
+          </button>
+          <button data-page-btn="dash-calories"
+                  class="w-full flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/40 text-gray-800">
+            Steps &amp; Calories
+          </button>
+          <button data-page-btn="dash-wellness"
+                  class="w-full flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/40 text-gray-800">
+            Wellness Score
+          </button>
+          <button data-page-btn="dash-pair"
+                  class="w-full flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/40 text-gray-800">
+            Pair Device
+          </button>
+        </nav>
+
+        <div class="mt-4 pt-3 border-t border-white/50 text-xs text-gray-700">
+          <div>Not medical advice.</div>
+          <button id="sidebar-logout"
+                  class="mt-2 w-full px-3 py-2 rounded-xl bg-red-500/90 text-white font-semibold hover:bg-red-600">
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      <!-- Mobile sidebar selector -->
+      <div class="md:hidden w-full mb-4">
+        <select id="mobile-page-select"
+                class="w-full rounded-2xl bg-white/70 backdrop-blur border border-white/60 p-2 text-sm shadow">
+          <option value="dash-home">Overview</option>
+          <option value="dash-live">Live Data</option>
+          <option value="dash-profile">Profile &amp; BMI</option>
+          <option value="dash-calories">Steps &amp; Calories</option>
+          <option value="dash-wellness">Wellness Score</option>
+          <option value="dash-pair">Pair Device</option>
+        </select>
+      </div>
+
+      <!-- Main glass content -->
+      <main class="flex-1 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/60 shadow-xl p-5" id="dashboard-main">
+        <!-- Overview page -->
+        <div data-page="dash-home">
+          <h2 class="text-2xl font-bold text-teal-800 mb-4">Overview</h2>
+          <p class="text-sm text-gray-600 mb-4">
+            Quick snapshot of your latest vitals and daily movement.
+          </p>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-gray-500 uppercase">Heart Rate</div>
+              <div class="text-2xl font-bold mt-1 text-teal-700" id="summary-hr">– bpm</div>
+              <div class="text-xs text-gray-500 mt-1">Latest reading</div>
+            </div>
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-gray-500 uppercase">Steps today</div>
+              <div class="text-2xl font-bold mt-1 text-teal-700" id="summary-steps">0</div>
+              <div class="text-xs text-gray-500 mt-1">
+                Goal: <span id="summary-step-goal">–</span> steps
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-gray-500 uppercase">Estimated calories</div>
+              <div class="text-2xl font-bold mt-1 text-teal-700" id="summary-calories">0 kcal</div>
+              <div class="text-xs text-gray-500 mt-1">From steps</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live data page -->
+        <div data-page="dash-live" class="hidden">
+          <h2 class="text-2xl font-bold text-teal-800 mb-4">Live Data</h2>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-sm font-semibold text-gray-600">❤️ Heart Rate</div>
+              <div class="text-3xl font-bold mt-2 text-teal-700" id="kpi-hr">– bpm</div>
+            </div>
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-sm font-semibold text-gray-600">🌡 Temperature</div>
+              <div class="text-3xl font-bold mt-2 text-teal-700" id="kpi-temp">– °C</div>
+              <div class="text-xs text-gray-500 mt-1">Add backend temp later</div>
+            </div>
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-sm font-semibold text-gray-600">🚶 Steps</div>
+              <div class="text-3xl font-bold mt-2 text-teal-700" id="kpi-steps">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile & BMI page -->
+        <div data-page="dash-profile" class="hidden">
+          <h2 class="text-2xl font-bold text-teal-800 mb-4">Profile &amp; BMI</h2>
+          <p class="text-sm text-gray-600 mb-4">
+            Store your basic measurements so DigiHealth can personalise your step goals and calorie estimates.
+          </p>
+          <form id="profile-form" class="grid md:grid-cols-3 gap-4 max-w-xl">
+            <div>
+              <label class="text-xs font-semibold text-gray-600 block mb-1">Weight (kg)</label>
+              <input type="number" step="0.1" min="0" id="profile-weight"
+                     class="w-full border rounded-xl p-2 text-sm" required>
+            </div>
+            <div>
+              <label class="text-xs font-semibold text-gray-600 block mb-1">Height (cm)</label>
+              <input type="number" step="0.5" min="0" id="profile-height"
+                     class="w-full border rounded-xl p-2 text-sm" required>
+            </div>
+            <div class="flex items-end">
+              <button type="submit"
+                      class="w-full bg-teal-700 text-white rounded-xl py-2 text-sm font-semibold hover:bg-teal-600">
+                Save profile
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-6 max-w-xl grid md:grid-cols-3 gap-4">
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-gray-500 uppercase">BMI</div>
+              <div class="text-2xl font-bold mt-1 text-teal-700" id="profile-bmi">–</div>
+              <div class="text-xs text-gray-500 mt-1" id="profile-bmi-category">No data yet</div>
+            </div>
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-gray-500 uppercase">Step goal</div>
+              <div class="text-2xl font-bold mt-1 text-teal-700" id="profile-step-goal">–</div>
+              <div class="text-xs text-gray-500 mt-1">Based on your BMI</div>
+            </div>
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-gray-500 uppercase">Info</div>
+              <div class="text-xs text-gray-600 mt-1">
+                BMI is only one indicator and not medical advice.
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-4" id="profile-status"></p>
+        </div>
+
+        <!-- Steps & Calories page -->
+        <div data-page="dash-calories" class="hidden">
+          <h2 class="text-2xl font-bold text-teal-800 mb-4">Steps &amp; Calories</h2>
+          <div class="max-w-xl space-y-4">
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="flex justify-between items-center">
+                <div>
+                  <div class="text-xs font-semibold text-gray-500 uppercase">Steps today</div>
+                  <div class="text-2xl font-bold mt-1 text-teal-700" id="cal-steps">0</div>
+                  <div class="text-xs text-gray-500 mt-1">
+                    Goal: <span id="cal-step-goal">–</span> steps
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 w-full h-2 rounded-full bg-gray-200 overflow-hidden">
+                <div id="cal-progress-bar" class="h-full rounded-full bg-teal-500 transition-all" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl bg-white/80 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-gray-500 uppercase">Estimated calories from steps</div>
+              <div class="text-2xl font-bold mt-1 text-teal-700" id="cal-estimate">0 kcal</div>
+              <div class="text-xs text-gray-500 mt-1">
+                Approximate calculation using 0.05 kcal per step.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wellness Score page -->
+        <div data-page="dash-wellness" class="hidden">
+          <h2 class="text-2xl font-bold text-teal-800 mb-4">Wellness Score</h2>
+          <p class="text-sm text-gray-600 mb-4">
+           Your wellness score based on activity and vitals. 
+          </p>
+          <div class="rounded-2xl bg-white/80 p-6 max-w-md shadow-sm flex flex-col items-center">
+            <div class="text-xs font-semibold text-gray-500 uppercase mb-1">score</div>
+            <div class="text-4xl font-extrabold text-teal-700" id="wellness-score">– / 100</div>
+            <div class="text-xs text-gray-500 mt-2 text-center">
+            
+            </div>
+          </div>
+        </div>
+
+        <!-- Pair device page -->
+        <div data-page="dash-pair" class="hidden">
+          <h2 class="text-2xl font-bold text-teal-800 mb-4">Pair a new device</h2>
+          <div class="max-w-md rounded-2xl bg-white/80 p-6 shadow-sm">
+            <form id="pair-form" class="space-y-3">
+              <input
+                type="text"
+                id="pairing-code-input"
+                class="w-full border rounded-xl p-2.5 text-sm"
+                placeholder="Enter 6-digit pairing code from your device"
+                required
+              >
+              <button
+                type="submit"
+                class="w-full bg-teal-700 text-white rounded-xl p-2.5 hover:bg-teal-600 text-sm font-semibold"
+              >
+                Pair device
+              </button>
+            </form>
+            <p id="pairing-status" class="text-sm mt-3 text-gray-600"></p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-teal-700 text-white text-center py-6 text-sm mt-8">
+  © <span id="year"></span> DigiHealth · Not medical advice
+</footer>
+
+<script>
+// ===== Year in footer =====
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// ===== API BASE (same origin) =====
+const API_BASE = "";
+
+// ===== AUTH STATE (JWT) =====
+let authToken = localStorage.getItem("token") || null;
+let userProfile = null; // {weight, height, bmi} once loaded
+
+function isLoggedIn() {
+  return !!authToken;
+}
+
+// Simple BMI helpers
+function bmiCategory(bmi) {
+  if (!bmi || bmi <= 0) return "No data";
+  if (bmi < 18.5) return "Underweight";
+  if (bmi < 25) return "Normal range";
+  if (bmi < 30) return "Overweight";
+  return "Obese range";
+}
+
+// Step goal based on BMI
+function stepGoalFromBMI(bmi) {
+  if (!bmi || bmi <= 0) return 8000; // default
+  if (bmi < 25) return 8000;
+  if (bmi < 30) return 6000;
+  return 5000;
+}
+
+// ===== UPDATE VIEW: landing vs dashboard =====
+function updateView() {
+  const dashShell       = document.getElementById("dashboard-shell");
+  const navDashboard    = document.getElementById("nav-dashboard");
+  const navLogin        = document.getElementById("nav-login");
+  const navRegister     = document.getElementById("nav-register");
+  const logoutBtn       = document.getElementById("logout-btn");
+  const loginSection    = document.getElementById("login");
+  const registerSection = document.getElementById("register");
+  const getStartedBtn   = document.getElementById("home-btn1");
+  const homeSection     = document.getElementById("home");
+  const aboutSection    = document.getElementById("about");
+  const servicesSection = document.getElementById("services");
+
+  if (isLoggedIn()) {
+    if (dashShell)       dashShell.classList.remove("hidden");
+    if (navDashboard)    navDashboard.classList.remove("hidden");
+    if (logoutBtn)       logoutBtn.style.display = "inline-block";
+    if (navLogin)        navLogin.style.display = "none";
+    if (navRegister)     navRegister.style.display = "none";
+    if (loginSection)    loginSection.classList.add("hidden");
+    if (registerSection) registerSection.classList.add("hidden");
+    if (getStartedBtn)   getStartedBtn.style.display = "none";
+    if (homeSection)     homeSection.classList.add("hidden");
+    if (aboutSection)    aboutSection.classList.add("hidden");
+    if (servicesSection) servicesSection.classList.add("hidden");
+  } else {
+    if (dashShell)       dashShell.classList.add("hidden");
+    if (navDashboard)    navDashboard.classList.add("hidden");
+    if (logoutBtn)       logoutBtn.style.display = "none";
+    if (navLogin)        navLogin.style.display = "inline";
+    if (navRegister)     navRegister.style.display = "inline";
+    if (loginSection)    loginSection.classList.remove("hidden");
+    if (registerSection) registerSection.classList.remove("hidden");
+    if (getStartedBtn)   getStartedBtn.style.display = "inline-flex";
+    if (homeSection)     homeSection.classList.remove("hidden");
+    if (aboutSection)    aboutSection.classList.remove("hidden");
+    if (servicesSection) servicesSection.classList.remove("hidden");
+  }
+}
+
+// ===== REGISTRATION =====
+document.getElementById("reg-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const username = document.getElementById("reg-username").value.trim();
+  const email    = document.getElementById("reg-email").value.trim();
+  const password = document.getElementById("reg-password").value;
+
+  try {
+    const res = await fetch(`${API_BASE}/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password })
+    });
+    const data = await res.json();
+
+    if (!res.ok || !data.ok) {
+      alert(data.message || "Registration failed");
+      return;
+    }
+
+    alert("Registration successful. Please log in.");
+    document.getElementById("reg-form").reset();
+  } catch (err) {
+    console.error(err);
+    alert("Network error during registration");
+  }
+});
+
+// ===== LOGIN =====
+document.getElementById("login-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const email    = document.getElementById("login-email").value.trim();
+  const password = document.getElementById("login-password").value;
+
+  try {
+    const res = await fetch(`${API_BASE}/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+
+    if (!res.ok || !data.ok) {
+      alert(data.message || "Login failed");
+      return;
+    }
+
+    authToken = data.token;
+    localStorage.setItem("token", authToken);
+
+    // Show username in sidebar if present
+    const sidebarUsername = document.getElementById("sidebar-username");
+    if (sidebarUsername && data.user && data.user.username) {
+      sidebarUsername.textContent = data.user.username;
+    }
+
+    updateView();
+    await loadProfile();  // load BMI + step goal
+    await fetchLatest();  // fetch vitals once
+    // switch to dashboard overview
+    showPage("dash-home");
+    document.getElementById("dashboard-shell").scrollIntoView({ behavior: "smooth" });
+  } catch (err) {
+    console.error(err);
+    alert("Network error during login");
+  }
+});
+
+// ===== LOGOUT (top + sidebar) =====
+document.getElementById("logout-btn").addEventListener("click", function() {
+  authToken = null;
+  localStorage.removeItem("token");
+  userProfile = null;
+  updateView();
+});
+
+const sidebarLogout = document.getElementById("sidebar-logout");
+if (sidebarLogout) {
+  sidebarLogout.addEventListener("click", () => {
+    authToken = null;
+    localStorage.removeItem("token");
+    userProfile = null;
+    updateView();
+    window.location.hash = "#home";
+  });
+}
+
+// ===== PAGE SWITCHING (SIDEBAR + MOBILE SELECT) =====
+function showPage(pageName) {
+  document.querySelectorAll("[data-page]").forEach(el => {
+    if (el.getAttribute("data-page") === pageName) {
+      el.classList.remove("hidden");
+    } else {
+      el.classList.add("hidden");
+    }
+  });
+
+  // highlight active button
+  document.querySelectorAll("[data-page-btn]").forEach(btn => {
+    const target = btn.getAttribute("data-page-btn");
+    if (target === pageName) {
+      btn.classList.add("bg-white/70", "text-teal-800", "font-semibold", "shadow-sm");
+    } else {
+      btn.classList.remove("bg-white/70", "text-teal-800", "font-semibold", "shadow-sm");
+    }
+  });
+
+  const mobileSelect = document.getElementById("mobile-page-select");
+  if (mobileSelect && mobileSelect.value !== pageName) {
+    mobileSelect.value = pageName;
+  }
+}
+
+document.querySelectorAll("[data-page-btn]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const page = btn.getAttribute("data-page-btn");
+    showPage(page);
+  });
+});
+
+const mobileSelect = document.getElementById("mobile-page-select");
+if (mobileSelect) {
+  mobileSelect.addEventListener("change", () => {
+    showPage(mobileSelect.value);
+  });
+}
+
+// default page (dashboard shell is hidden when logged out)
+showPage("dash-home");
+
+// ===== PROFILE LOAD & SAVE =====
+async function loadProfile() {
+  if (!isLoggedIn()) return;
+  try {
+    const res = await fetch(`${API_BASE}/api/profile`, {
+      headers: {
+        "Authorization": "Bearer " + authToken
+      }
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) {
+      console.warn("Profile load error:", data.message);
+      return;
+    }
+    userProfile = data.profile || null;
+
+    const weightInput = document.getElementById("profile-weight");
+    const heightInput = document.getElementById("profile-height");
+    const bmiEl       = document.getElementById("profile-bmi");
+    const bmiCatEl    = document.getElementById("profile-bmi-category");
+    const stepGoalEl  = document.getElementById("profile-step-goal");
+
+    if (userProfile) {
+      if (weightInput && userProfile.weight != null) weightInput.value = userProfile.weight;
+      if (heightInput && userProfile.height != null) heightInput.value = userProfile.height;
+      if (bmiEl) bmiEl.textContent = userProfile.bmi != null ? userProfile.bmi.toFixed(1) : "–";
+      const cat = bmiCategory(userProfile.bmi);
+      if (bmiCatEl) bmiCatEl.textContent = cat;
+      const goal = stepGoalFromBMI(userProfile.bmi);
+      if (stepGoalEl) stepGoalEl.textContent = goal.toString();
+    }
+  } catch (err) {
+    console.error("Profile load error:", err);
+  }
+}
+
+document.getElementById("profile-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  if (!isLoggedIn()) return;
+  const weight = document.getElementById("profile-weight").value;
+  const height = document.getElementById("profile-height").value;
+  const statusEl = document.getElementById("profile-status");
+
+  try {
+    const res = await fetch(`${API_BASE}/api/profile`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + authToken
+      },
+      body: JSON.stringify({ weight, height })
+    });
+    const data = await res.json();
+
+    if (!res.ok || !data.ok) {
+      statusEl.textContent = data.message || "Failed to save profile.";
+      statusEl.classList.remove("text-teal-600");
+      statusEl.classList.add("text-red-600");
+      return;
+    }
+
+    userProfile = data.profile;
+
+    const bmiEl       = document.getElementById("profile-bmi");
+    const bmiCatEl    = document.getElementById("profile-bmi-category");
+    const stepGoalEl  = document.getElementById("profile-step-goal");
+
+    if (bmiEl) bmiEl.textContent = userProfile.bmi != null ? userProfile.bmi.toFixed(1) : "–";
+    if (bmiCatEl) bmiCatEl.textContent = bmiCategory(userProfile.bmi);
+    const goal = stepGoalFromBMI(userProfile.bmi);
+    if (stepGoalEl) stepGoalEl.textContent = goal.toString();
+
+    statusEl.textContent = "Profile saved successfully.";
+    statusEl.classList.remove("text-red-600");
+    statusEl.classList.add("text-teal-600");
+  } catch (err) {
+    console.error("Profile save error:", err);
+    statusEl.textContent = "Server error while saving profile.";
+    statusEl.classList.remove("text-teal-600");
+    statusEl.classList.add("text-red-600");
+  }
+});
+
+// ===== PAIRING CLAIM =====
+document.getElementById("pair-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const pairingCodeInput = document.getElementById("pairing-code-input");
+  const statusEl         = document.getElementById("pairing-status");
+  const pairingCode      = pairingCodeInput.value.trim();
+
+  if (!isLoggedIn()) {
+    statusEl.textContent = "You must be logged in to pair a device.";
+    statusEl.classList.remove("text-teal-600");
+    statusEl.classList.add("text-red-600");
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_BASE}/api/pairing/claim`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + authToken
+      },
+      body: JSON.stringify({ pairingCode })
+    });
+    const data = await res.json();
+
+    if (!res.ok || !data.ok) {
+      statusEl.textContent = data.error || "Pairing failed (invalid or expired code).";
+      statusEl.classList.remove("text-teal-600");
+      statusEl.classList.add("text-red-600");
+      return;
+    }
+
+    statusEl.textContent = "Device paired successfully! Device ID: " + data.deviceId;
+    statusEl.classList.remove("text-red-600");
+    statusEl.classList.add("text-teal-600");
+    pairingCodeInput.value = "";
+  } catch (err) {
+    console.error(err);
+    statusEl.textContent = "Server error while pairing.";
+    statusEl.classList.remove("text-teal-600");
+    statusEl.classList.add("text-red-600");
+  }
+});
+
+// ===== REALTIME POLLING (/api/latest) =====
+async function fetchLatest() {
+  if (!isLoggedIn()) return;
+
+  try {
+    const res = await fetch(`${API_BASE}/api/latest`, {
+      headers: {
+        "Authorization": "Bearer " + authToken
+      }
+    });
+    if (!res.ok) return;
+
+    const data = await res.json();
+
+    const hr    = data.bpm ?? null;
+    const steps = data.steps ?? 0;
+
+    // ===== Live KPIs =====
+    const hrEl    = document.getElementById("kpi-hr");
+    const tempEl  = document.getElementById("kpi-temp");
+    const stepsEl = document.getElementById("kpi-steps");
+
+    if (hrEl)    hrEl.textContent    = hr !== null ? `${hr} bpm` : "– bpm";
+    if (stepsEl) stepsEl.textContent = `${steps}`;
+    if (tempEl)  tempEl.textContent  = "– °C";
+
+    // ===== Overview =====
+    const summaryHrEl    = document.getElementById("summary-hr");
+    const summaryStepsEl = document.getElementById("summary-steps");
+    const summaryCalEl   = document.getElementById("summary-calories");
+    const summaryGoalEl  = document.getElementById("summary-step-goal");
+
+    if (summaryHrEl)    summaryHrEl.textContent    = hr !== null ? `${hr} bpm` : "– bpm";
+    if (summaryStepsEl) summaryStepsEl.textContent = `${steps}`;
+
+    const bmi  = userProfile?.bmi ?? null;
+    const goal = stepGoalFromBMI(bmi);
+    const calories = Math.round(steps * 0.05);
+
+    if (summaryCalEl)  summaryCalEl.textContent  = `${calories} kcal`;
+    if (summaryGoalEl) summaryGoalEl.textContent = goal.toString();
+
+    // ===== Calories page =====
+    const calStepsEl = document.getElementById("cal-steps");
+    const calGoalEl  = document.getElementById("cal-step-goal");
+    const calEstEl   = document.getElementById("cal-estimate");
+    const calBar     = document.getElementById("cal-progress-bar");
+
+    if (calStepsEl) calStepsEl.textContent = `${steps}`;
+    if (calGoalEl)  calGoalEl.textContent  = goal.toString();
+    if (calEstEl)   calEstEl.textContent   = `${calories} kcal`;
+    if (calBar) {
+      const pct = goal > 0 ? Math.min(100, (steps / goal) * 100) : 0;
+      calBar.style.width = pct + "%";
+    }
+
+    // ===== Wellness score =====
+    fetch(`${API_BASE}/api/wellness/current`, {
+      headers: { "Authorization": "Bearer " + authToken }
+    })
+    .then(res => res.json())
+    .then(data => {
+      const wellnessEl = document.getElementById("wellness-score");
+      if (!wellnessEl) return;
+
+      wellnessEl.textContent =
+        data.wellnessScore == null
+          ? "– / 100"
+          : `${data.wellnessScore} / 100`;
+    })
+    .catch(err => console.error("Wellness fetch error:", err));
+
+  } catch (err) {
+    console.error("Polling error:", err);
+  }
+}
+
+// Poll only when logged in
+setInterval(() => {
+  if (isLoggedIn()) fetchLatest();
+}, 4000);
+
+// ===== LANGUAGE SWITCH =====
+function setLanguage(lang){
+  if(lang === 'am'){
+    document.getElementById("nav-title").textContent    = "ԴիջիՀելթ";
+    document.getElementById("nav-about").textContent    = "Մեր մասին";
+    document.getElementById("nav-home").textContent     = "Գլխավոր";
+    document.getElementById("nav-services").textContent = "Ծառայություններ";
+    document.getElementById("nav-login").textContent    = "Մուտք";
+    document.getElementById("nav-register").textContent = "Գրանցում";
+
+    document.getElementById("home-title").textContent  = "Ժամանակին առողջության վերահսկում";
+    document.getElementById("home-text").textContent   =
+      "Հետևեք ձեր կենսական ցուցանիշներին, հասկացեք ձեր տվյալները և բարելավեք ձեր առողջությունը DigiHealth-ի օգնությամբ:";
+    document.getElementById("home-btn1").textContent   = "Սկսել";
+    document.getElementById("home-btn2").textContent   = "Ծառայություններ դիտել";
+
+    document.getElementById("about-title").textContent = "Մեր մասին";
+    document.getElementById("about-text").textContent  =
+      "DigiHealth-ը սմարթվաչ-ներ և այլ սարքեր օգտագործող պլատֆորմ է, որը ցույց է տալիս իրական ժամանակի տվյալներ՝ ձեր առողջության մասին:";
+
+    document.getElementById("services-title").textContent = "Մեր ծառայությունները";
+    document.getElementById("s1-title").textContent       = "Հում տվյալներ";
+    document.getElementById("s1-text").textContent        = "Սիրտի պուլս, ջերմաստիճան և քայլերի տվյալներ։";
+    document.getElementById("s2-title").textContent       = "Առողջության գնահատական";
+    document.getElementById("s2-text").textContent        = "Ընդհանուր առողջության գնահատում հիմնական ցուցանիշների հիման վրա։";
+    document.getElementById("s3-title").textContent       = "Առաջարկություններ";
+    document.getElementById("s3-text").textContent        = "Անհատականացված խորհուրդներ ձեր ինքնազգացողությունը բարելավելու համար։";
+    document.getElementById("s4-title").textContent       = "Պատմություն";
+    document.getElementById("s4-text").textContent        = "Դիտել և արտահանել ձեր նախորդ առողջական տվյալները։";
+
+    document.getElementById("login-title").textContent = "Մուտք";
+    document.getElementById("reg-title").textContent   = "Ստեղծել հաշիվ";
+    document.getElementById("login-text").textContent  =
+      "Մուտքը թույլ է տալիս մուտք գործել ձեր արդեն գոյություն ունեցող հաշիվ՝ ձեր առողջության տվյալները դիտելու համար։";
+    document.getElementById("reg-text").textContent    =
+      "Գրանցումը թույլ է տալիս ստեղծել նոր հաշիվ՝ ձեր առողջությունը հետևելու համար։";
+  }
+  else if(lang === 'ru'){
+    document.getElementById("nav-title").textContent    = "ДигиХелс";
+    document.getElementById("nav-about").textContent    = "О нас";
+    document.getElementById("nav-home").textContent     = "Главная";
+    document.getElementById("nav-services").textContent = "Сервисы";
+    document.getElementById("nav-login").textContent    = "Вход";
+    document.getElementById("nav-register").textContent = "Регистрация";
+
+    document.getElementById("home-title").textContent  = "Мониторинг здоровья в реальном времени";
+    document.getElementById("home-text").textContent   =
+      "Отслеживайте свои показатели, понимайте данные и улучшайте своё благополучие с помощью DigiHealth.";
+    document.getElementById("home-btn1").textContent   = "Начать";
+    document.getElementById("home-btn2").textContent   = "Изучить сервисы";
+
+    document.getElementById("about-title").textContent = "О нас";
+    document.getElementById("about-text").textContent  =
+      "DigiHealth — платформа, которая визуализирует данные в реальном времени с носимых устройств, таких как смарт-часы.";
+
+    document.getElementById("services-title").textContent = "Наши сервисы";
+    document.getElementById("s1-title").textContent       = "Сырые данные";
+    document.getElementById("s1-text").textContent        = "Пульс, температура и количество шагов.";
+    document.getElementById("s2-title").textContent       = "Оценка здоровья";
+    document.getElementById("s2-text").textContent        = "Общая оценка здоровья на основе ключевых показателей.";
+    document.getElementById("s3-title").textContent       = "Рекомендации";
+    document.getElementById("s3-text").textContent        = "Персональные советы для улучшения самочувствия.";
+    document.getElementById("s4-title").textContent       = "История";
+    document.getElementById("s4-text").textContent        = "Просмотр и экспорт ваших прошлых данных о здоровье.";
+
+    document.getElementById("login-title").textContent = "Вход";
+    document.getElementById("reg-title").textContent   = "Создать аккаунт";
+    document.getElementById("login-text").textContent  =
+      "Вход позволяет получить доступ к вашей существующей учетной записи для просмотра данных о здоровье.";
+    document.getElementById("reg-text").textContent    =
+      "Регистрация позволяет создать новую учетную запись для отслеживания вашего здоровья.";
+  }
+  else {
+    document.getElementById("nav-title").textContent    = "DigiHealth";
+    document.getElementById("nav-about").textContent    = "About";
+    document.getElementById("nav-home").textContent     = "Home";
+    document.getElementById("nav-services").textContent = "Services";
+    document.getElementById("nav-login").textContent    = "Login";
+    document.getElementById("nav-register").textContent = "Register";
+
+    document.getElementById("home-title").textContent  = "Real-time Health Monitoring";
+    document.getElementById("home-text").textContent   =
+      "Track your vitals, understand your data, and improve your wellbeing with DigiHealth smart insights.";
+    document.getElementById("home-btn1").textContent   = "Get Started";
+    document.getElementById("home-btn2").textContent   = "Explore Services";
+
+    document.getElementById("about-title").textContent = "About Us";
+    document.getElementById("about-text").textContent  =
+      "DigiHealth is a prototype platform that visualizes real-time data from wearable devices such as smartwatches. It helps users monitor their vital signs and understand trends in their wellbeing.";
+
+    document.getElementById("services-title").textContent = "Our Services";
+    document.getElementById("s1-title").textContent       = "Raw Signals";
+    document.getElementById("s1-text").textContent        = "Live data for heart rate, temperature, and steps.";
+    document.getElementById("s2-title").textContent       = "Health Score";
+    document.getElementById("s2-text").textContent        = "See your overall health score based on key vitals.";
+    document.getElementById("s3-title").textContent       = "Recommendations";
+    document.getElementById("s3-text").textContent        = "Get personalized tips for better wellness.";
+    document.getElementById("s4-title").textContent       = "History";
+    document.getElementById("s4-text").textContent        = "View and export your previous health records.";
+
+    document.getElementById("login-title").textContent = "Login";
+    document.getElementById("reg-title").textContent   = "Create Account";
+    document.getElementById("login-text").textContent  =
+      "Login allows you to access your existing account to view your health data.";
+    document.getElementById("reg-text").textContent    =
+      "Register allows you to create a new account to start tracking your health.";
+  }
+}
+
+document.getElementById("btn-am").addEventListener("click", ()=>setLanguage('am'));
+document.getElementById("btn-en").addEventListener("click", ()=>setLanguage('en'));
+document.getElementById("btn-ru").addEventListener("click", ()=>setLanguage('ru'));
+
+// Init
+setLanguage('en');
+updateView();
+
+// If already logged in from previous session, load profile + latest
+(async () => {
+  if (isLoggedIn()) {
+    await loadProfile();
+    await fetchLatest();
+  }
+})();
+</script>
+
+</body>
+</html>
