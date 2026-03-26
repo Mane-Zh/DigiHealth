@@ -49,9 +49,9 @@ Backend server for the **DigiHealth** wearable health monitoring system. It rece
 ├── .env                        # Local environment variables (gitignored)
 ├── .env.example                # Environment variable template
 ├── .gitignore
+├── README.md
 ├── package-lock.json           # Auto-generated lockfile
 ├── package.json
-├── README.md
 └── server.js                   # Main Express app and all core routes
 ```
 
