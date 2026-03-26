@@ -40,6 +40,7 @@ DigiHealth/
 │   └── README.md          # Backend setup and API reference
 ├── firmware/              # Arduino/ESP sketch and sensor logic
 │   └── README.md          # Firmware setup and wiring guide
+├── LICENSE                # MIT License
 └── README.md              # You are here
 ```
 
