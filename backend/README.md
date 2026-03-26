@@ -30,14 +30,14 @@ Backend server for the **DigiHealth** wearable health monitoring system. It rece
 ## Project Structure
 
 ```
-├── middleware/
-│   └── auth.js                 # JWT auth middleware
 ├── ML/
 │   ├── generate_dataset.py     # Generates synthetic training data
 │   ├── predict_wellness.py     # ML inference script called by the server
 │   ├── synthetic_wellness.csv  # Generated dataset (output of above)
 │   ├── train_model.py          # Trains and saves the wellness model
 │   └── wellness_model.pkl      # Trained model file (gitignored, generate locally)
+├── middleware/
+│   └── auth.js                 # JWT auth middleware
 ├── models/
 │   └── device.js               # Mongoose Device model
 ├── node_modules/               # Auto-generated, not committed
